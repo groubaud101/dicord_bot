@@ -6,7 +6,6 @@ Version française - English Version below
 Bot discord pour serveur multi jdr.
 
 Ce qu'il fait :
-
 Il change votre pseudo selon le salon écrit ou vocal où vous intéragissez (écrivez/vous connectez).
 
 Comment :
