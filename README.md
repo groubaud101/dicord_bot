@@ -30,8 +30,8 @@ Sans les chevrons <>.
 
 Où chaque jdr se trouve dans une catégorie qui du même nom. Nous avons fait notre serveur comme ceci pour que les personne n'ayant pas tel ou tel rôle (correspondant à un jdr) ne sera pas envahi par eux.
 
-![vue serveur](C:\Users\admin\Documents\mille_noms\mille-noms_vue_serveur.png)
-![vue chtullhu](C:\Users\admin\Documents\mille_noms\mille-noms_vue_chtullu.png)
+![vue serveur](/images/mille-noms_vue_serveur.png)
+![vue chtullhu](/images/mille-noms_vue_chtullu.png)
 
 ## Installation
 
