@@ -1,25 +1,29 @@
 import os
 import discord
-import requests
-
-
-from discord import Webhook, RequestsWebhookAdapter
-
-from datetime import datetime
 import time
+
+
+from discord import Webhook
+
+# pour avoir une instance de bot
+from discord.ext import commands
+
+# pour avoir la date sur les logs quand le bot réagit
+from datetime import datetime
+
+# pour avoir le TOKEN dans un fichier de config
 from dotenv import load_dotenv
 
-default_intents = discord.Intents.default()
-default_intents.members = True
+#default_intents = discord.Intents.default()
+#default_intents.members = True
+
+bot = commands.Bot(command_prefix="mn")
 
 load_dotenv(dotenv_path="config");
 
-client = discord.Client(intents=default_intents)
+#client = discord.Client(intents=default_intents)
 
-channel_config_id = 845295311311470593
-
-#config_channel = client.get_channel(845295311311470593)
-
+channel_config_id = 846436512811319296 
 # config_channel	les pseudos doivent être formatés comme suit
 #			sur plusieurs lignes ou plusieurs messages
 #
@@ -27,10 +31,14 @@ channel_config_id = 845295311311470593
 
 now = time.localtime(time.time())
 
-@client.event
+@bot.event
 async def on_ready():
-	print(time.strftime("%d/%m/%y %H:%M", now))
-	print("Le bot est prêt");
+	print("Le bot est pret")
+
+#@client.event
+#async def on_ready():
+#	print(time.strftime("%d/%m/%y %H:%M", now))
+#	print("Le client est prêt");
 
 def remove_prefix(_str, prefix):
 	if _str.startswith(prefix):
@@ -46,8 +54,8 @@ def aff_log(data):
 	my_file.close()
 
 async def whats_your_name(member, jdr_name):
-	aff_log("jdr_name : " + jdr_name)
-	config_channel = client.get_channel(channel_config_id)
+	aff_log("jdr_name : " + jdr_name + "\n")
+	config_channel = bot.get_channel(channel_config_id)
 	default = member.name
 	async for config_pseudo in config_channel.history():
 		if (member == config_pseudo.author):
@@ -55,7 +63,7 @@ async def whats_your_name(member, jdr_name):
 			for each_jdr in source_names:
 				if (each_jdr.startswith(".") and each_jdr.find(" : ") > 1):
 					tab_pseudo = each_jdr.split(" : ")
-					aff_log("\ntab_pseudo : '" + tab_pseudo[0] + "', '" + tab_pseudo[1] + "'")
+					aff_log("tab_pseudo : '" + tab_pseudo[0] + "', '" + tab_pseudo[1] + "'")
 
 					if (tab_pseudo[0].lower() == ".défaut"):
 						if (jdr_name == "défaut"):
@@ -66,9 +74,10 @@ async def whats_your_name(member, jdr_name):
 						return tab_pseudo[1]
 	return default
 
-@client.event
+#@client.event
+@bot.event
 async def on_voice_state_update(member, before, after):
-	aff_log(time.strftime("\n%d/%m/%y %H:%M", now))
+	aff_log(time.strftime("%d/%m/%y %H:%M", now))
 	if (member.voice):
 		aff_log(member.name + " a agit dans le salon vocal " + after.channel.name)
 		jdr_name = after.channel.category.name
@@ -76,7 +85,8 @@ async def on_voice_state_update(member, before, after):
 		await member.edit(nick=pseudo)
 	return
 
-@client.event
+#@client.event
+@bot.event
 async def on_message(message):
 	aff_log(time.strftime("\n%d/%m/%y %H:%M", now))
 	aff_log(message.author.name + " a écrit dans le salon " + message.channel.name)
@@ -92,4 +102,5 @@ async def on_message(message):
 		await message.channel.send("Disgrâce");
 
 
-client.run(os.getenv("TOKEN"))
+#client.run(os.getenv("TOKEN"))
+bot.run(os.getenv("TOKEN"))
