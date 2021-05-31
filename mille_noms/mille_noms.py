@@ -14,9 +14,6 @@ from datetime import datetime
 # pour avoir le TOKEN dans un fichier de config
 from dotenv import load_dotenv
 
-#default_intents = discord.Intents.default()
-#default_intents.members = True
-
 bot = commands.Bot(command_prefix="mn")
 
 load_dotenv(dotenv_path="config");
@@ -34,11 +31,6 @@ now = time.localtime(time.time())
 @bot.event
 async def on_ready():
 	print("Le bot est pret")
-
-#@client.event
-#async def on_ready():
-#	print(time.strftime("%d/%m/%y %H:%M", now))
-#	print("Le client est prêt");
 
 def remove_prefix(_str, prefix):
 	if _str.startswith(prefix):
@@ -74,7 +66,6 @@ async def whats_your_name(member, jdr_name):
 						return tab_pseudo[1]
 	return default
 
-#@client.event
 @bot.event
 async def on_voice_state_update(member, before, after):
 	aff_log(time.strftime("%d/%m/%y %H:%M", now))
@@ -85,7 +76,6 @@ async def on_voice_state_update(member, before, after):
 		await member.edit(nick=pseudo)
 	return
 
-#@client.event
 @bot.event
 async def on_message(message):
 	aff_log(time.strftime("\n%d/%m/%y %H:%M", now))
@@ -101,6 +91,6 @@ async def on_message(message):
 	if message.content.casefold().find("trahison") != -1:
 		await message.channel.send("Disgrâce");
 
-
-#client.run(os.getenv("TOKEN"))
+# Si vous copier coller le code pour faitre votre propre bot, vous devez
+# remplacer cette ligne par bot.run("le numéro de token de votre bot")
 bot.run(os.getenv("TOKEN"))
