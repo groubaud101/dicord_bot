@@ -35,6 +35,7 @@ Où chaque jdr se trouve dans une catégorie du même nom. Nous avons fait notre
 Vue serveur :
 
 ![vue serveur](/images/mille-noms_vue_serveur.png)
+
 Vue du rôle Cthulhu :
 
 ![vue chtullhu](/images/mille-noms_vue_chtullu.png)
