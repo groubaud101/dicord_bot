@@ -1,9 +1,11 @@
 # Mille Noms
 
+WORK IN PROGRESS, fonctionnel mais tout juste.
+
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 Bot discord pour serveur multi jdr.
 
-Il change votre pseudo selon le salon écrit/vocal où vous intéragissez (vous écrivez/connectez).
+Il change votre pseudo selon le salon écrit/vocal où vous intéragissez (écrivez / connectez).
 Il vous remet votre pseudo discord de base si aucun ne correspond.
 
 ## Pré-requis
@@ -12,7 +14,7 @@ Il vous faut 2 choses :
 
 * Un salon **"vos-pseudos"**
 
-Qui référencie les pseudos à prendre en compte pour chaque personne.
+Qui référencit les pseudos à prendre en compte pour chaque personne.
 Le format des pseudos doit être écris dans le salon #vos-pseudos sous cette forme :
 `.<le nom du jdr><espace>:<espace><votre pseudo>`
 
@@ -28,11 +30,13 @@ Sans les chevrons <>.
 
 * Une structure de votre serveur
 
-Où chaque jdr se trouve dans une catégorie qui du même nom. Nous avons fait notre serveur comme ceci pour que les personne n'ayant pas tel ou tel rôle (correspondant à un jdr) ne sera pas envahi par eux.
+Où chaque jdr se trouve dans une catégorie du même nom. Nous avons fait notre serveur comme suit pour que les personnes n'ayant pas tel ou tel rôle (correspondant à un jdr) ne soient pas envahies par eux.
 
 Vue serveur :
+
 ![vue serveur](/images/mille-noms_vue_serveur.png)
 Vue du rôle Cthulhu :
+
 ![vue chtullhu](/images/mille-noms_vue_chtullu.png)
 
 ## Installation
