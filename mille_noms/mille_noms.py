@@ -20,11 +20,14 @@ load_dotenv(dotenv_path="config");
 
 #client = discord.Client(intents=default_intents)
 
-channel_config_id = 846436512811319296 
-# config_channel	les pseudos doivent être formatés comme suit
-#			sur plusieurs lignes ou plusieurs messages
+config_channel_id = 846436512811319296 
+# config channel : les pseudos doivent être formatés comme suit
+# sur plusieurs lignes ou plusieurs messages
 #
 # .<nom de la catégorie du jdr> : <pseudo>
+#
+# Les espaces de par et d'autres des 2 points sont importants, exemple :
+# .Warhammer : Jean Edouard de la Haute
 
 now = time.localtime(time.time())
 
@@ -47,7 +50,7 @@ def aff_log(data):
 
 async def whats_your_name(member, jdr_name):
 	aff_log("jdr_name : " + jdr_name + "\n")
-	config_channel = bot.get_channel(channel_config_id)
+	config_channel = bot.get_channel(config_channel_id)
 	default = member.name
 	async for config_pseudo in config_channel.history():
 		if (member == config_pseudo.author):
@@ -83,9 +86,11 @@ async def on_message(message):
 	if (message.channel.category):
 		jdr_name = message.channel.category.name
 		pseudo = await whats_your_name(message.author, jdr_name)
-	else:	# peut être enlevé si le par défaut gène
-		pseudo = await whats_your_name(message.author, "défaut")
-	await message.author.edit(nick=pseudo)
+# Les deux lignes suivantes peuvent être enlevées si le par défaut gène
+	#else:
+	#	pseudo = await whats_your_name(message.author, "défaut")
+# La ligne suivante doit etre une tab de moins si il y a le else
+		await message.author.edit(nick=pseudo)
 	if message.content.casefold().startswith("ping") == True:
 		await message.channel.send("Pong");
 	if message.content.casefold().find("trahison") != -1:
