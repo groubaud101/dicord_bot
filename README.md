@@ -46,9 +46,9 @@ Invitez le bot sur votre serveur : [invitation](https://discord.com/api/oauth2/a
 
 ## Démarrage
 
-Ensuite il ne vous reste qu'à écrire ou à vous connectez dans le salon de votre choix.
+Ensuite il ne vous reste qu'à écrire ou à vous connecter dans le salon de votre choix.
 
-## Programmer avec
+## Programmé avec
 
 Python3 sur Ubuntu avec wsl 2
 
